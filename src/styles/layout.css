@@ -1,0 +1,38 @@
+/* ---------------------------------------------------------------------------
+   Responsive layout for the three-column workspace.
+
+   The board is the focal object, so it keeps the widest column and the side
+   panels collapse beneath it as space runs out. Checked at 375, 768, 1024 and
+   1440px — nothing may cause the page body to scroll sideways.
+--------------------------------------------------------------------------- */
+
+/* Tablet and below: drop to a single column, board first. */
+@media (max-width: 1180px) {
+  .learn-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@media (max-width: 720px) {
+  main {
+    padding: var(--spacing-md) !important;
+  }
+
+  header {
+    padding: var(--spacing-md) !important;
+  }
+}
+
+/* Nothing may widen the page itself; wide content scrolls inside its own box. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+table,
+pre {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
